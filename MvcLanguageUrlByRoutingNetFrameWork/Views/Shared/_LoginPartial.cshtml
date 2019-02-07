@@ -18,5 +18,14 @@ else
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @if ((string)ViewContext.RouteData.Values["language"] == "en-sa")
+        {
+            <li><a href="@Url.Action("ChangeLanguage","Home",new {Lang="ar-sa",returnURL=ViewContext.HttpContext.Request.Url.PathAndQuery })">عربي</a></li>
+        }
+        else
+        {
+            <li><a href="@Url.Action("ChangeLanguage","Home",new {Lang="en-sa",returnURL=ViewContext.HttpContext.Request.Url.PathAndQuery })">English</a></li>
+        }
+
     </ul>
 }
